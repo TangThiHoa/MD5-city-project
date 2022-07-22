@@ -1,0 +1,64 @@
+<!--<h1 style="text-align: center" >Danh sach thanh pho </h1>-->
+<!--<table class="table table-bordered">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th scope="col">#</th>-->
+<!--    <th scope="col">name</th>-->
+<!--    <th scope="col">area</th>-->
+<!--    <th scope="col">gdp</th>-->
+<!--    <th scope="col">population</th>-->
+<!--    <th scope="col">description</th>-->
+<!--    <th scope="col">Action</th>-->
+<!--    <th scope="col">Action</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let city of cities">-->
+<!--    <td>{{city.id}}</td>-->
+<!--    <td>{{city.name}}</td>-->
+<!--    <td>{{city.area}}</td>-->
+<!--    <td>{{city.population}}</td>-->
+<!--    <td>{{city.gdp}}</td>-->
+<!--    <td>{{city.description}}</td>-->
+<!--    <td><button [routerLink]="['/cities/edit', city.id]">Sua </button></td>-->
+<!--    <td><button [routerLink]="['/cities/delete', city.id]">Xoa </button></td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+<div class="col-12" >
+  <h2 style="text-align: center" >Danh sách thanh pho</h2>
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" [routerLink]="['/cities/create']">
+    Them moi
+  </button>
+<!--  <form [formGroup]="form" (submit)="find()">-->
+<!--    <input type="number" formControlName="from" placeholder="From">-->
+<!--    <input type="number" formControlName="to" placeholder="To">-->
+<!--    <button type="submit">Tim</button>-->
+<!--  </form>-->
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Thanh pho</th>
+      <th scope="col">Quoc gia</th>
+      <th scope="col">Area</th>
+      <th scope="col">Population</th>
+      <th scope="col">GDP</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let city of cities; index as i">
+      <td scope="row">{{i+1}}</td>
+      <td>{{city.name}}</td>
+      <td>{{city.country.name}}</td>
+      <td>{{city.area}}</td>
+      <td>{{city.population}}</td>
+      <td>{{city.gdp}}</td>
+      <td>{{city.description}}</td>
+      <td><button type="button" class="btn btn-outline-secondary mr-2" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit', city.id]" >Sửa</button>
+        <button class="btn btn-outline-danger" [routerLink]="['/cities/delete', city.id]">Xoá</button></td>
+    </tr>
+  </table>
+</div>

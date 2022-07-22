@@ -1,0 +1,37 @@
+<div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="cityForm" (submit)="save()">
+          <input type="hidden" formControlName="id">
+          <label>Name:</label>
+          <input type='text' formControlName="name" class="form-control" placeholder="Name">
+          <label>Quoc gia: </label>
+          <select formControlName="countryId">
+            <option *ngFor="let country of listCountry" [value]="country.id">
+              {{country.name}}
+            </option>
+          </select>
+          <label>Dien tich:</label>
+          <input type='text' formControlName="area" class="form-control" placeholder="Area">
+          <label>Dan so:</label>
+          <input type='number' formControlName="population" class="form-control" placeholder="Population">
+          <label>GDP:</label>
+          <input type='number' formControlName="gdp" class="form-control" placeholder="GDP">
+          <label>Description:</label>
+          <input type='text' formControlName="description" class="form-control" placeholder="Description">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
